@@ -1,0 +1,22 @@
+SQL>  SELECT Distinct PRIMARYTITLE, AVERAGERATING,GENRES,PRIMARYNAME FROM sharmac.TITLE_RATINGS R, sharmac.TITLE_BASICS B, sharmac.NAME_BASICS N, sharmac.TITLE_PRINCIPALS P
+  2   WHERE R.TCONST = B.TCONST AND B.TCONST = P.TCONST AND P.NCONST = N.NCONST AND GENRES LIKE '%Comedy%Romance%' AND STARTYEAR BETWEEN '2011' AND '2015' AND TITLETYPE = 'movie'
+  3   AND NUMVOTES >=50000 AND P.ORDERING = '1'
+  4   ORDER BY	AVERAGERATING DESC
+  5   FETCH FIRST 10 ROWS ONLY ;
+
+PRIMARYTITLE                   AVERAGERATING GENRES                         PRIMARYNAME                                                                                                                                                                                                                     
+------------------------------ ------------- ------------------------------ ------------------------------                                                                                                                                                                                                  
+The Artist                               7.9 Comedy,Drama,Romance           Jean Dujardin                                                                                                                                                                                                                   
+Silver Linings Playbook                  7.8 Comedy,Drama,Romance           Bradley Cooper                                                                                                                                                                                                                  
+Midnight in Paris                        7.7 Comedy,Fantasy,Romance         Owen Wilson                                                                                                                                                                                                                     
+50/50                                    7.7 Comedy,Drama,Romance           Joseph Gordon-Levitt                                                                                                                                                                                                            
+Frances Ha                               7.4 Comedy,Drama,Romance           Greta Gerwig                                                                                                                                                                                                                    
+Crazy, Stupid, Love.                     7.4 Comedy,Drama,Romance           Steve Carell                                                                                                                                                                                                                    
+The Best Exotic Marigold Hotel           7.3 Comedy,Drama,Romance           Judi Dench                                                                                                                                                                                                                      
+Stuck in Love                            7.3 Comedy,Drama,Romance           Greg Kinnear                                                                                                                                                                                                                    
+Love, Rosie                              7.2 Comedy,Romance                 Lily Collins                                                                                                                                                                                                                    
+Pitch Perfect                            7.2 Comedy,Music,Romance           Anna Kendrick                                                                                                                                                                                                                   
+
+10 rows selected.
+
+SQL>  SPOOL OFF
